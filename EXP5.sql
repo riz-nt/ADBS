@@ -1,0 +1,36 @@
+USE RIZ;
+
+CREATE VIEW FACULTY1 AS SELECT ID, NAME, DEPARTMENT FROM instructor;
+SELECT * FROM FACULTY1;
+
+CREATE VIEW DEPT_SALARY_TOTAL AS SELECT DEPARTMENT, SUM(SALARY) AS TOTAL_SALARY FROM instructor GROUP BY DEPARTMENT;
+SELECT * FROM DEPT_SALARY_TOTAL;
+
+CREATE ROLE 'student';
+
+GRANT SELECT ON FACULTY TO student;
+
+CREATE USER riz@localhost IDENTIFIED BY 'root';
+GRANT student TO riz@localhost;
+
+GRANT ALL PRIVILEGES ON student.* TO riz@localhost;
+SELECT * FROM FACULTY WHERE DEPARTMENT = 'Biology';
+
+REVOKE student FROM riz@localhost;
+
+DROP ROLE student;
+
+GRANT SELECT ON FACULTY TO riz@localhost;
+
+CREATE TABLE teaches2 (
+  ID INT NOT NULL,
+  course_id VARCHAR(255) NOT NULL,
+  sec_id INT NOT NULL,
+  semester VARCHAR(255) NOT NULL CHECK (semester IN ('Fall', 'Winter', 'Spring', 'Summer')),
+  year INT NOT NULL,
+  FOREIGN KEY (ID) REFERENCES instructor(ID)
+);
+
+CREATE INDEX idx_ID ON teaches (ID);
+
+DROP INDEX idx_ID ON teaches;
