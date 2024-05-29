@@ -67,7 +67,7 @@ cursor.execute(grant_select)
 
 #  Create a new user and assign her the role of student.
 new_role = """
-CREATE USER riz@localhost IDENTIFIED BY '1234'
+CREATE USER riz@localhost IDENTIFIED BY 'root'
 """
 
 cursor.execute(new_role)
