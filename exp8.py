@@ -4,7 +4,7 @@ conn = mysql.connector.connect(
     host='localhost',
     user='root',
     password='root123',
-    database='exp6'
+    database='riz'
 )
 
 cursor = conn.cursor()
@@ -67,20 +67,20 @@ cursor.execute(grant_select)
 
 #  Create a new user and assign her the role of student.
 new_role = """
-CREATE USER guru@localhost IDENTIFIED BY '1234'
+CREATE USER riz@localhost IDENTIFIED BY '1234'
 """
 
 cursor.execute(new_role)
 
 grant_user = """
-GRANT student TO guru@localhost
+GRANT student TO riz@localhost
 """
 
 cursor.execute(grant_user)
 
 #  Revoke privileges of the new user
 revoke_user = """
-REVOKE student FROM guru@localhost
+REVOKE student FROM riz@localhost
 """
 
 cursor.execute(revoke_user)
@@ -94,7 +94,7 @@ cursor.execute(remove_role)
 
 # Give select privileges on the view faculty to the new user
 select_user = """
-GRANT SELECT ON faculty TO guru@localhost
+GRANT SELECT ON faculty TO riz@localhost
 """
 
 cursor.execute(select_user)
