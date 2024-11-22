@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            padding:20px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-container {
+            width: 400px;
+            background-color: #e1e1e1;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>Register</h2>
+    <div class="container">
+        <div class="form-container">
+    <form action="action.php" method="POST">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+
+        <label for="registration id">Registration id:</label><br>
+        <input type="text" id="register" name="register" ><br><br>
+
+        <label for="sex">Sex:</label>
+        <input type="radio" id="male" name="sex" value="male"> Male
+        <input type="radio" id="female" name="sex" value="female"> Female<br><br>
+
+        <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" name="mobile"><br><br>
+      
+
+        <button type="submit">Register</button>
+    </form></div>
+</div>
+</body>
+</html>
